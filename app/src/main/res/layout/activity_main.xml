@@ -66,5 +66,13 @@
         tools:layout_editor_absoluteX="62dp"
         tools:layout_editor_absoluteY="318dp" />
 
+    <TextView
+        android:id="@+id/textViewGestures"
+        android:layout_width="265dp"
+        android:layout_height="93dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="443dp" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

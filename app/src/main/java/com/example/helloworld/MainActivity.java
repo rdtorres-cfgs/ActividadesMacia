@@ -8,28 +8,19 @@ import android.view.MotionEvent;
 import android.view.VelocityTracker;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GestureDetectorCompat;
 
-
 public class MainActivity extends AppCompatActivity implements
         GestureDetector.OnGestureListener,
-        GestureDetector.OnDoubleTapListener{
+        GestureDetector.OnDoubleTapListener {
 
+    private TextView textViewGestures;
     private static final String DEBUG_TAG = "Gestos";
     private GestureDetectorCompat DetectorGestos;
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        // Instantiate the gesture detector with the
-        // application context and an implementation of
-        // GestureDetector.OnGestureListener
-        DetectorGestos = new GestureDetectorCompat(this,this);
-        // Set the gesture detector as the double tap listener.
-        DetectorGestos.setOnDoubleTapListener(this);
-    }
     public static final String EXTRA_MESSAGE = "com.example.helloworld.MESSAGE";
 
     public void sendMessage(View view) {
@@ -41,6 +32,17 @@ public class MainActivity extends AppCompatActivity implements
         startActivity(intent);
     }
 
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        // Instantiate the gesture detector with the
+        // application context and an implementation of
+        // GestureDetector.OnGestureListener
+        DetectorGestos = new GestureDetectorCompat(this, this);
+        // Set the gesture detector as the double tap listener.
+        DetectorGestos.setOnDoubleTapListener(this);
+    }
     @Override
     public boolean onTouchEvent(MotionEvent event){
         if (this.DetectorGestos.onTouchEvent(event)) {
